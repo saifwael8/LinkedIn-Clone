@@ -3,7 +3,7 @@ import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 
 import jwt from "jsonwebtoken";
-import { sendWelcomeEmail } from './../emails/emailHandlers';
+import { sendWelcomeEmail } from "./../emails/emailHandlers.js";
 
 export const signup = async (req, res) => {
   try {
@@ -60,11 +60,9 @@ export const signup = async (req, res) => {
 
     try {
       await sendWelcomeEmail(user.email, user.name, profileUrl);
-
     } catch (emailError) {
       console.error("Error sending welcome email: ", emailError);
     }
-
   } catch (error) {
     console.error("Error in signup: ", error.message);
     res.status(500).json({ message: "Internal server error" });
@@ -77,4 +75,13 @@ export const login = (req, res) => {
 
 export const logout = (req, res) => {
   res.send("logout");
+};
+
+export const getCurrentUser = async (req, res) => {
+  try {
+    res.json(req.user);
+  } catch (error) {
+    console.error("Error in getCurrentUser controller: ", error);
+    res.status(500).json({ message: "Server error" });
+  }
 };

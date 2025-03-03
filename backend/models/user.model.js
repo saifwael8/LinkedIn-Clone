@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "Linkedin User",
     },
-    skills: [string],
+    skills: [String],
     experience: [
       {
         title: String,

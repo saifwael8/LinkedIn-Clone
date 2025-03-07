@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
@@ -16,6 +17,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+app.use(cors({
+  credentials: true, 
+  origin: "http://localhost:5173"}));
+  
 app.use(express.json({limit: "5mb"})); // parse json request body
 app.use(cookieParser());
 
@@ -24,6 +29,7 @@ app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/posts", postRoutes);
 app.use("/api/v1/notifications", notificationRoutes);
 app.use("/api/v1/connection", connectionRoutes);
+
 
 app.listen(PORT, () => {
   console.log("Server running on port " + PORT);

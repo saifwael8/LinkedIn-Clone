@@ -6,6 +6,7 @@ import SignUpPage from "./pages/auth/SignUpPage";
 import UpdatePasswordForm from "./components/UpdatePasswordForm/UpdatePasswordForm";
 import UpdateUserNameForm from "./components/UpdateUserNameForm/UpdateUserNameForm";
 import VerifyEmail from "./pages/auth/VerifyEmail";
+import ForgotPasswordForm from "./components/ForgotPasswordForm/ForgotPasswordForm.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
         <Route path="/update-password-form" element={<UpdatePasswordForm />} />
         <Route path="/update-username-form" element={<UpdateUserNameForm />} />
+        <Route path="/forgot-password" element={<ForgotPasswordForm />} />
       </Routes>
     </Layout>
   );

@@ -3,7 +3,7 @@ import { axiosInstance } from "../../lib/axios.js";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { data: authUser } = useQuery({ queryKey: ["authUser"], queryFn: async () => await axiosInstance.get("/me") });
+  const { data: authUser } = useQuery({ queryKey: ["authUser"], queryFn: async () => await axiosInstance.get("/me"), retry: 0});
   //   const queryClient = useQuery();
     const isLoggedIn = !! authUser?.data;   // !! converts the value to a boolean
 

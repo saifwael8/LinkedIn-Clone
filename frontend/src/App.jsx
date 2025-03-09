@@ -5,6 +5,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import SignUpPage from "./pages/auth/SignUpPage";
 import UpdatePasswordForm from "./components/UpdatePasswordForm/UpdatePasswordForm";
 import UpdateUserNameForm from "./components/UpdateUserNameForm/UpdateUserNameForm";
+import VerifyEmail from "./pages/auth/VerifyEmail";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
+
         <Route path="/update-password-form" element={<UpdatePasswordForm />} />
         <Route path="/update-username-form" element={<UpdateUserNameForm />} />
       </Routes>
